@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>progressbar</title>
+</head>
+
+<body>
+        <div class="container">
+        <div class="progress" style="height: 40px; margin-bottom: 60px;"> 
+          <div
+            id="my-progress-bar"
+            class="progress-bar progress-bar-striped bg-warning progress-bar-animated"
+            role="progressbar"
+            style="width: 0%">
+          </div>
+        </div>
+        <div class="buttons">
+          <button onclick="funcProgress(1)" type="button" class="btn btn-outline-primary">Прогресс +1%</button>
+          <button onclick="funcProgress(3)" type="button" class="btn btn-outline-success">Прогресс +3%</button>
+          <button onclick="funcProgress(7)" type="button" class="btn btn-outline-danger">Прогресс +7%</button>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var totalProgress = 0;
+        function funcProgress(pcProgress) {
+            totalProgress = totalProgress + pcProgress;
+            console.log(pcProgress)
+            if (pcProgress === 1) {$(".progress-bar").css('color', 'blue')};
+            if (pcProgress === 3) {$(".progress-bar").css('color', 'lightgreen')};
+            if (pcProgress === 7) {$(".progress-bar").css('color', 'red')};
+
+            if (totalProgress <= 25) {
+                $(".progress-bar").prop("class", "progress-bar progress-bar-striped progress-bar-animated")} 
+                else {
+                    if (totalProgress <= 75) {$(".progress-bar").prop("class", "progress-bar bg-success progress-bar-striped progress-bar-animated")}
+                        else {$(".progress-bar").prop("class", "progress-bar bg-danger progress-bar-striped progress-bar-animated")}
+            }
+
+            if (totalProgress > 100) {
+                totalProgress = 100;
+                $("button").prop("disabled", true);
+                $(".progress-bar").prop("class", "progress-bar progress-bar-striped bg-danger progress-bar-animated")
+            };
+
+            $("#my-progress-bar").width(String(totalProgress) + "%");
+            $('.progress-bar').text(totalProgress + '%');
+        }
+    </script>
+
+        <script src="./js/jquery-3.4.1.min.js"></script>
+	    <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

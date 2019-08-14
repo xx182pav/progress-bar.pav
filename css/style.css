@@ -1,0 +1,24 @@
+.container {
+
+	justify-content: center;
+	padding: 40px 20px 40px 20px;
+	margin-top: 150px;
+	background: #181616;
+	width: 700px;
+	border-radius: 5px;
+
+}
+
+.buttons {
+	text-align: center;
+}
+
+.group-buttons {
+	margin-left: 22px;
+	margin-bottom: 20px;
+}
+
+.btn {
+	font-weight: bold;
+
+}
